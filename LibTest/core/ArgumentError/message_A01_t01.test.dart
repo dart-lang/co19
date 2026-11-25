@@ -8,10 +8,11 @@
 /// @description Checks that message property returns description of the problem
 /// @author sgrekhov@unipro.ru
 
-
 import "../../../Utils/expect.dart";
 
-test(ArgumentError create([value, String? name, message])) {
+test(
+    ArgumentError Function([dynamic value, String? name, dynamic message])
+        create) {
   var msg = "some message";
   ArgumentError err = create(null, null, msg);
   Expect.equals(msg, err.message);

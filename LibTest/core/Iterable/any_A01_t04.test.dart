@@ -14,7 +14,7 @@
 library any_A01_t04;
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Expect.isTrue(create([0, 1, 2, 3]).any((e) => e > 1 && e < 3));
   Expect.isFalse(create([1, 2, 3]).any((e) => e < 0));
   Expect.isTrue(create([null]).any((e) => true));

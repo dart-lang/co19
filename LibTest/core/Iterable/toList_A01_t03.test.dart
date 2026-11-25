@@ -38,7 +38,7 @@ check(List l) {
   } on UnsupportedError {}
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([]).toList(growable:false));
   Iterable src = create([null, [null], [], [1, 2, 3], [[null]]]);
   check(src.toList(growable:false));

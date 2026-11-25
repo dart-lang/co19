@@ -14,7 +14,7 @@ library first_A03_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a = create([1, 2, 3, 4, 5]);
   Iterator i = a.iterator;
   i.moveNext();

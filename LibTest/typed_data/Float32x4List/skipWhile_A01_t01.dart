@@ -19,7 +19,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-void check(List<Float32x4> list, bool test(Float32x4 element)) {
+void check(List<Float32x4> list, bool Function(Float32x4 element) test) {
   var l = new Float32x4List.fromList(list);
   var it0 = l.iterator;
   var res = l.skipWhile(test);

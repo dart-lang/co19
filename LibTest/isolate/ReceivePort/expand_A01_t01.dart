@@ -16,7 +16,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(List list, Iterable convert(value), List expected) {
+check(List list, Iterable Function(dynamic value) convert, List expected) {
   Stream s1 = IsolateStream.fromIterable(list);
   Stream s2 = s1.expand(convert);
   List actual = [];

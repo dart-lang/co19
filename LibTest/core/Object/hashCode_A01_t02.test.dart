@@ -18,7 +18,7 @@
 library hashCode_A01_t02;
 import "../../../Utils/expect.dart";
 
-test(Object create()){
+test(Object Function() create){
   Object o = create();
   int h1 = o.hashCode;
   int h2 = o.hashCode;

@@ -11,7 +11,7 @@ library iterator_current_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a = create(25476, 0);
   Iterator it = a.iterator;
   for (var i = 0; i < a.length; i++) {

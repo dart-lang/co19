@@ -18,7 +18,7 @@ library distinct_A01_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, bool equals(T previous, T next)) {
+void check<T>(Stream<T> s, bool Function(T previous, T next) equals) {
   Stream<T> d = s.distinct(equals);
   bool first = true;
   var previous;

@@ -10,11 +10,11 @@
 library singleWhere_A02_t01;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, bool f(value)) {
+check(Iterable a, bool Function(dynamic value) f) {
   Expect.throws(() {a.singleWhere(f);}, (e) => e is StateError);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([1, 2, -3, 4]), (value) => value == 0);
   check(create(const[1,2,-5,-6]), (value) => value > 2);
 }

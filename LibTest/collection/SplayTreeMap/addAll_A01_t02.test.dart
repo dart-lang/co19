@@ -12,7 +12,7 @@ library addAll_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   Map map = create();
   Map other = {1 : 0, "2" : 2, 3.0 : null};
   

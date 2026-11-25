@@ -19,7 +19,7 @@ class A {
   A() {}
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   dynamic a = create([1, 2, 3]);
   dynamic x1 = false;
   dynamic x2 = 1;

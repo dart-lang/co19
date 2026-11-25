@@ -16,7 +16,7 @@ library any_A01_t05;
 import "../../../Utils/expect.dart";
 
 //Checks that [some] calls [tst] a [count] number of times
-check(Iterable a, bool tst(e), int count) {
+check(Iterable a, bool Function(dynamic e) tst, int count) {
   int actualCount = 0;
   a.any((e) {
     actualCount++;
@@ -25,7 +25,7 @@ check(Iterable a, bool tst(e), int count) {
   Expect.equals(count, actualCount);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable s = create([1, 2, 3, 4, 5]);
 
   bool allTrue(e) => true;

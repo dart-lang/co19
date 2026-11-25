@@ -43,7 +43,9 @@ bool testRemoveUnexistent(element) {
   return element <= 4;
 }
 
-check(bool test(dynamic element), List list, List expected, bool expectError) {
+check(
+    bool Function(dynamic element) test, List list, List expected,
+    bool expectError) {
   queue = new DoubleLinkedQueue.from(list);
   if (expectError) {
     Expect.throws(() {queue?.retainWhere(test);});

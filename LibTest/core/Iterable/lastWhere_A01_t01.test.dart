@@ -19,7 +19,7 @@ void check(Iterable a, element) {
   Expect.equals(element, a.lastWhere((value) => value == element));
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a = create([42, 0, -1, 42, -1, 6031769, 0]);
   check(a, 42);
   check(a, 0);

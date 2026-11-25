@@ -16,10 +16,10 @@ library every_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
 
   //Checks that [every] calls [predicate] a [count] number of times
-  check(List a0, bool predicate(e), int count) {
+  check(List a0, bool Function(dynamic e) predicate, int count) {
     Iterable a = create(a0);
     int actualCount = 0;
     a.every((e) {

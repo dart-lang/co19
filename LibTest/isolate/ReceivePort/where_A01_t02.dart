@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check(Iterable data, bool test(event)) {
+void check(Iterable data, bool Function(dynamic event) test) {
   Stream s = IsolateStream.fromIterable(data)
       .map((x) => x % 2 == 0 ? x : throw new ArgumentError(x))
       .asBroadcastStream();

@@ -19,7 +19,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(
-    Stream<T> s, bool test(T element), Object expectedError, List<T> expected) {
+    Stream<T> s, bool Function(T element) test, Object expectedError,
+    List<T> expected) {
   AsyncExpect.events(expected, [expectedError], s.takeWhile(test));
 }
 

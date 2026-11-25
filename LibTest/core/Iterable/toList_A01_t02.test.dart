@@ -22,7 +22,7 @@ void check(List l) {
   Expect.equals(0, l.length);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable l = create([1, 2, 3, 4, 5]);
   List a = l.toList(growable:true);
   check(a);

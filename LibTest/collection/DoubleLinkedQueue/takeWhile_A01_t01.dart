@@ -12,7 +12,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-void check(List a0, bool test(dynamic element)) {
+void check(List a0, bool Function(dynamic element) test) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a0);
   Iterator it0 = a0.iterator;
   Iterable a = queue.takeWhile(test);

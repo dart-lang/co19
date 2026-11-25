@@ -18,7 +18,7 @@ checkList(dst, dstOffset, count, src) {
       (e) => e is RangeError);
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   void check(int dstSize, int srcSize, int dstOffset, int count) {
     List src = create(srcSize, 0);
     List dst = create(dstSize, 0);

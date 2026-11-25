@@ -32,7 +32,8 @@ main() {
   Expect.equals(3, callback(1, 2));
 
   ZoneBinaryCallback<R, T1, T2> registerFunction<R, T1, T2>(
-      Zone self, ZoneDelegate parent, Zone zone, R f(T1 arg1, T2 arg2)) {
+      Zone self, ZoneDelegate parent, Zone zone,
+      R Function(T1 arg1, T2 arg2) f) {
     return (_, __) => 42 as R;
   }
 

@@ -15,9 +15,10 @@ library where_A02_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
 
-  void check(Iterable source, bool f(element), Iterable expected) {
+  void check(
+      Iterable source, bool Function(dynamic element) f, Iterable expected) {
     Iterable ret = create(source).where(f);
     Iterator it = ret.iterator;
     while(it.moveNext()) {

@@ -14,7 +14,7 @@ library remove_A01_t05;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-test(Set create([Set content])) {
+test(Set Function([Set content]) create) {
   Set s = create();
 
   for(int i = 0; i < 1000; i++) {

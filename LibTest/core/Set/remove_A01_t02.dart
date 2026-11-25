@@ -13,7 +13,7 @@ library remove_A01_t02;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-test(Set create([Set content])) {
+test(Set Function([Set content]) create) {
   Set s = create();
   Expect.isFalse(s.remove(null));
   s.addAll([1, 2]);

@@ -21,7 +21,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-check(List a, bool test(value), int expected) {
+check(List a, bool Function(dynamic value) test, int expected) {
   IterableMixin iterable = new MyIterable(a);
   int actual = iterable.singleWhere(test) as int;
   Expect.equals(expected, actual);

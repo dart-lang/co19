@@ -13,7 +13,7 @@ library isEmpty_A01_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Expect.isTrue(create([]).isEmpty);
   Expect.isFalse(create([null]).isEmpty);
   Expect.isFalse(create(const[0, 1, 2, 3, 4]).isEmpty);

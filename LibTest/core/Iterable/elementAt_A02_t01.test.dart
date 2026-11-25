@@ -23,7 +23,7 @@ void check (Iterable a, int index) {
   Expect.throws(() {v = a.elementAt(index);}, (e) => e is RangeError );
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   List a = [5, 4, 3, 2, 1, 0];
   check(create(a), -1);
   check(create(a), a.length);

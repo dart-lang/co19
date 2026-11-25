@@ -15,7 +15,7 @@ class A {
 }
 
 @A()
-typedef void f(int, String);
+typedef f = void Function(int, String);
 
 main() {
   Expect.equals('.A',

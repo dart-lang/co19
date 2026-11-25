@@ -35,7 +35,7 @@ import "operator_subscripted_assignment_A01_t01.test.dart" as
 
 import "remove_A01_t01.test.dart" as remove_A01_t01;
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   addAll_A01_t01.test(create);
   clear_A01_t01.test(create);
   containsKey_A01_t01.test(create);

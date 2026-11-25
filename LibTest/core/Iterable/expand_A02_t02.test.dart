@@ -28,7 +28,7 @@ void check(Iterable a) {
   Expect.equals(2 * a.length, count);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create());
   check(create([1]));
   check(create([1, 2]));

@@ -31,7 +31,7 @@ library iterator_A03_t02;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable i = create([1, 2, 3, null, 10, 5]);
   Expect.notEquals(i.iterator, i.iterator);
 }

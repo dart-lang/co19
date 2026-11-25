@@ -14,7 +14,7 @@
 library any_A01_t03;
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   bool foo(x) => x > 0;
 
   Iterable s = create([-1, -3, -11]);

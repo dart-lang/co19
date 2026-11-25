@@ -22,7 +22,7 @@
 library operator_equality_A03_t03;
 import "../../../Utils/expect.dart";
 
-test(List<Object> createNotEqual(int number)) {
+test(List<Object> Function(int number) createNotEqual) {
 
   List<Object> objects = createNotEqual(2);
 

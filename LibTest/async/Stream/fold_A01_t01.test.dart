@@ -13,7 +13,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T, S>(
-    Stream<T> s, S initialValue, S combine(S previous, T element), S expected) {
+    Stream<T> s, S initialValue, S Function(S previous, T element) combine,
+    S expected) {
   AsyncExpect.value(expected, s.fold(initialValue, combine));
 }
 

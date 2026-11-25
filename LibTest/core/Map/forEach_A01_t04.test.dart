@@ -13,7 +13,7 @@ library forEach_A01_t04;
 
 import "../../../Utils/expect.dart";
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   Map map = create();
   
   map["1"] = 3;

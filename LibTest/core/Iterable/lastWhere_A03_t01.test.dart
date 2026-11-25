@@ -18,7 +18,7 @@ void check(Iterable a, element) {
       (e) => e is StateError);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a = create([42, 0, -1, 42, -1, 6031769, 0]);
   check(a, 43);
   check(a, 2);

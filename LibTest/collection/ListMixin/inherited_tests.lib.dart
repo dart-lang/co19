@@ -11,6 +11,6 @@ library inherited_tests_listmixin;
 
 import "../../core/List/allListTests.lib.dart" as all_list_tests;
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   all_list_tests.test(create);
 }

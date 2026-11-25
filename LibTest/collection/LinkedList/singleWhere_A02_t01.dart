@@ -12,7 +12,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-check(List a0, test(value)) {
+check(List a0, dynamic Function(dynamic value) test) {
   LinkedList<MyLinkedListEntry<int>> a = toLinkedList(a0);
   bool test2(MyLinkedListEntry<int> value) => test(value.value);
   Expect.throws(() { a.singleWhere(test2); }, (e) => e is StateError);

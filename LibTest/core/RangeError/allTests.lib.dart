@@ -11,7 +11,9 @@ library allTests_A01_t01;
 import "start_A01_t01.test.dart" as start_A01_t01;
 import "end_A01_t01.test.dart" as end_A01_t01;
 
-test(RangeError create(num invalidValue, int? minValue, int? maxValue)) {
+test(
+    RangeError Function(num invalidValue, int? minValue, int? maxValue)
+        create) {
   start_A01_t01.test(create);
   end_A01_t01.test(create);
 }

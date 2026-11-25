@@ -19,7 +19,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T, E>(
-    Stream<T> stream, Stream<E> convert(T event), List<E> expected) {
+    Stream<T> stream, Stream<E> Function(T event) convert, List<E> expected) {
   AsyncExpect.data(expected, stream.asyncExpand(convert));
 }
 

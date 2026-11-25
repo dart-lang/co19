@@ -11,7 +11,7 @@ library operator_subscript_A01_t02;
  
 import "../../../Utils/expect.dart";
  
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   Map map = create();
   Object value = "value";
   Expect.isFalse(map.containsKey(null));  

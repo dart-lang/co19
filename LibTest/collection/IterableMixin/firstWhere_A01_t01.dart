@@ -20,7 +20,7 @@ class MyIterable extends Object with IterableMixin {
   }
 }
 
-check(List list, bool test(value), int expected) {
+check(List list, bool Function(dynamic value) test, int expected) {
   MyIterable iterable = new MyIterable(list);
   int actual = iterable.firstWhere(test);
   Expect.equals(expected, actual);

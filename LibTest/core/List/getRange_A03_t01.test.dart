@@ -13,7 +13,7 @@ library getRange_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
   void check1(List list, int start, int length) {
     Expect.throws(() {list.getRange(start, start + length);},

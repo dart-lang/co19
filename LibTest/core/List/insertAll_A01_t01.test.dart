@@ -13,7 +13,7 @@ library insertAll_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-void check(List<E> create<E>([int length, E fill]), List a0, int index,
+void check(List<E> Function<E>([int length, E fill]) create, List a0, int index,
     Iterable elements) {
   List a = create();
   a.insertAll(0, a0);
@@ -33,7 +33,7 @@ void check(List<E> create<E>([int length, E fill]), List a0, int index,
   }
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a0 = [1, 3, 3, 4, 5, 6];
   check(create, a0, 0, [10, 20, 33]);
   check(create, a0, 3, [-10, 20, 33]);

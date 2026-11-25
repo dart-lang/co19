@@ -11,7 +11,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-check(List a, bool test(value)) {
+check(List a, bool Function(dynamic value) test) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
   Expect.throws(() { queue.singleWhere(test); }, (e) => e is StateError);
 }

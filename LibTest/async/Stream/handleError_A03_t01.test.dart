@@ -16,7 +16,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(
-    Stream s, void onError(error), List data, List intercepted, List expected) {
+    Stream s, void Function(dynamic error) onError, List data, List intercepted,
+    List expected) {
   List actualIntercepted = [];
   List actualErrors = [];
   List actualData = [];

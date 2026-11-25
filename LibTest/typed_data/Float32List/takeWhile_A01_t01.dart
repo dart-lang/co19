@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(List<double> list, bool test(double element)) {
+void check(List<double> list, bool Function(double element) test) {
   var l = new Float32List.fromList(list);
   var it0 = l.iterator;
   var res = l.takeWhile(test);

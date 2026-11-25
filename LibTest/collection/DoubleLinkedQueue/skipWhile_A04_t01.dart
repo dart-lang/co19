@@ -16,7 +16,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-void check(List a0, bool test0(dynamic element)) {
+void check(List a0, bool Function(dynamic element) test0) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a0);
   bool? testPassed = null;
   bool test(element) {

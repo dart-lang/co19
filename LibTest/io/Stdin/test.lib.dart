@@ -10,7 +10,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-run_main(FutureOr<void> run(Process _), String expected) async {
+run_main(FutureOr<void> Function(Process _) run, String expected) async {
   final String executable = Platform.resolvedExecutable;
   final String eScript = Platform.script.toString();
   int called = 0;
@@ -34,7 +34,7 @@ run_main(FutureOr<void> run(Process _), String expected) async {
   Expect.equals(1, called);
 }
 
-run_main_invalid(String run(Process process)) async {
+run_main_invalid(String Function(Process process) run) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;

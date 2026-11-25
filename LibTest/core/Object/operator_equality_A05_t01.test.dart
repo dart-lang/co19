@@ -20,7 +20,7 @@
 library operator_equality_A05_t01;
 import "../../../Utils/expect.dart";
 
-test(List<Object> createEqual(int number)) {
+test(List<Object> Function(int number) createEqual) {
 
   List<Object> objects = createEqual(2);
   for (int i = 0; i < 10; i++) {

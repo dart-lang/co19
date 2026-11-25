@@ -19,7 +19,7 @@ check(list, arg) {
   Expect.throws(() => list.forEach(arg));
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([1]), 1);
   check(create([1]), null);
   check(create([1]), "");

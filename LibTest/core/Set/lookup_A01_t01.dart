@@ -13,7 +13,7 @@ library lookup_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-test(Set create([Iterable content])) {
+test(Set Function([Iterable content]) create) {
   Set set = create([-1, 0, 1, 2, 3, 4, 5, 6]);
 
   Expect.equals(0, set.lookup(0));

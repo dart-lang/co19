@@ -14,7 +14,7 @@ library where_A01_t05;
  
 import "../../../Utils/expect.dart";
 
-check(Iterable a, bool predicate(e), exc) {
+check(Iterable a, bool Function(dynamic e) predicate, exc) {
   int actualCount = 0;
   Iterable ret = a.where((e) {
     actualCount++;
@@ -25,7 +25,7 @@ check(Iterable a, bool predicate(e), exc) {
   Expect.equals(1, actualCount);
 }
 
-test(Iterable create([Iterable content]), {bool isSet = false}) {
+test(Iterable Function([Iterable content]) create, {bool isSet = false}) {
   Iterable collection = create([1, 2, 3, 4, 5]);
 
   bool allTrue(e) {

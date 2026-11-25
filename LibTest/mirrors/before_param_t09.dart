@@ -14,7 +14,7 @@ class A {
   const A();
 }
 
-typedef void f(@A() int, String);
+typedef f = void Function(@A() int, String);
 
 main() {
   // This is a case where the documentation of `reflectType` isn't sufficiently

@@ -30,7 +30,7 @@ library lastWhere_A01_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, bool test(T element), T expected) {
+void check<T>(Stream<T> s, bool Function(T element) test, T expected) {
   bool orElseCalled = false;
   asyncStart();
   s.lastWhere(test, orElse: () {

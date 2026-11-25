@@ -31,7 +31,7 @@ library iterator_A02_t02;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable it = create([1, 2, 3, null, 10, 5]);
   List l = new List.empty(growable: true);
   Iterator i = it.iterator;

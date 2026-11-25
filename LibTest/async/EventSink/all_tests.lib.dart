@@ -23,7 +23,7 @@ import "close_A01_t01.test.dart" as close_A01_t01;
 import "noSuchMethodError_A01_t01.test.dart" as noSuchMethodError_A01_t01;
 import "toString_A01_t01.test.dart" as toString_A01_t01;
 
-test(EventSink create()) {
+test(EventSink Function() create) {
   asyncStart();
   EventSink_A01_t01.test(create);
   hashCode_A01_t01.test(create);

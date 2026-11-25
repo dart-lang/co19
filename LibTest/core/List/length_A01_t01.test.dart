@@ -13,7 +13,7 @@ library length_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a = create();
   a.length = 100;
   a[99] = 1;

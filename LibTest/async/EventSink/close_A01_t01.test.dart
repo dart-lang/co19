@@ -14,7 +14,7 @@ library close_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-test(EventSink create()) {
+test(EventSink Function() create) {
   EventSink es1 = create();
   if (es1 is StreamController) {
     StreamController sc = es1;

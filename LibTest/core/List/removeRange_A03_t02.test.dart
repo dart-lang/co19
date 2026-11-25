@@ -16,7 +16,7 @@ checkList(l, start, end) {
   Expect.throws(() {l.removeRange(start, end);}, (e) => e is RangeError);
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
   void check(int listSize, int start, int end) {
     List l = create();

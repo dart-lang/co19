@@ -12,7 +12,9 @@ import "dart:collection";
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-check(List list, num combine(value, element), num expected) {
+check(
+    List list, num Function(dynamic value, dynamic element) combine,
+    num expected) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   queue.addAll(list);
   num actual = queue.reduce(combine);

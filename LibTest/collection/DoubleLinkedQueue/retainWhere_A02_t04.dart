@@ -25,7 +25,7 @@ bool test(element) {
   return element > 3;
 }
 
-check(bool test(dynamic element), List list, List expected) {
+check(bool Function(dynamic element) test, List list, List expected) {
   queue.addAll(list);
   queue.retainWhere(test);
   Expect.equals(expected.length, queue.length);

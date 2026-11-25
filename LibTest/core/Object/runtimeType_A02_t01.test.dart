@@ -10,6 +10,6 @@
 library runtimeType_A02_t01;
 import "../../../Utils/expect.dart";
 
-test(Object create()) {
+test(Object Function() create) {
   Expect.isNotNull(create().runtimeType);
 }

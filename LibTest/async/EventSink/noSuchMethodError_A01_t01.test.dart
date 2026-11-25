@@ -15,7 +15,7 @@ library noSuchMethodError_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-test(EventSink create()) {
+test(EventSink Function() create) {
   dynamic es1 = create();
 
   try {

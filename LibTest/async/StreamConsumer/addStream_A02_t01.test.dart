@@ -17,7 +17,7 @@ library addStream_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-test(StreamConsumer create()) {
+test(StreamConsumer Function() create) {
   StreamConsumer sc1 = create();
   if (sc1 is StreamController) {
     StreamController sc = sc1;

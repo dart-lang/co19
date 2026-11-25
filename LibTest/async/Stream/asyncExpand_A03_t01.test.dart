@@ -17,7 +17,7 @@ library asyncExpand_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T, E>(Stream<T> stream, Stream<E>? convert(T event)) {
+void check<T, E>(Stream<T> stream, Stream<E>? Function(T event) convert) {
   Expect.equals(stream.isBroadcast, stream.asyncExpand(convert).isBroadcast);
 }
 

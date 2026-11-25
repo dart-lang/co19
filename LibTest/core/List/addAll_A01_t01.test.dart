@@ -14,7 +14,7 @@ library addAll_A01_t01;
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a = create();
   List b = create(1000, 0);
   for (var i = 0; i < b.length; i++){

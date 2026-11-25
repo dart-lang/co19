@@ -29,7 +29,7 @@ class Eq{
   bool operator ==(other) => other is Eq;
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List<Object?> a = create<Object?>(10, -1);
   checkList(a, -1, 9);
   

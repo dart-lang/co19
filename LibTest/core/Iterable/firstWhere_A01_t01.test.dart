@@ -15,12 +15,12 @@
 library firstWhere_A01_t01;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, bool test(value), expected) {
+check(Iterable a, bool Function(dynamic value) test, expected) {
   var actual = a.firstWhere(test);
   Expect.equals(expected, actual);
 }
 
-test(Iterable create([Iterable content]), {bool isSet = false}) {
+test(Iterable Function([Iterable content]) create, {bool isSet = false}) {
   if (isSet) {
     // Set may be unordered so the first element that satisfies the test is
     // unpredictable. Test the case where the only element satisfies

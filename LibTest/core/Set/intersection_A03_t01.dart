@@ -10,7 +10,7 @@ library intersection_A03_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-test(Set create([Iterable content])) {
+test(Set Function([Iterable content]) create) {
   Expect.equals(0, create([1, 2, 3, 4]).intersection([null].toSet()).length);
   Expect.equals(1, create([1, 2, 3, 4]).intersection([null, 1].toSet()).length);
 }

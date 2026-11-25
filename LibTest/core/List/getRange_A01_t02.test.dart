@@ -12,7 +12,7 @@ library getRange_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
   void check(List src, int start) {
     List a = create();

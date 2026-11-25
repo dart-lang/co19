@@ -14,7 +14,7 @@
 library noSuchMethod_A01_t01;
 import "../../../Utils/expect.dart";
 
-test(Object create()) {
+test(Object Function() create) {
   dynamic o = create();
 
   Expect.throws(() {o.noSuchMethod_A01_t01;}, (e) => e is NoSuchMethodError);

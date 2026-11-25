@@ -11,7 +11,7 @@
 library forEach_A03_t01;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, predicate(e), exc) {
+check(Iterable a, dynamic Function(dynamic e) predicate, exc) {
   int actualCount = 0;
   Expect.throws(
     () {
@@ -24,7 +24,7 @@ check(Iterable a, predicate(e), exc) {
   Expect.equals(1, actualCount);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   allTrue(e) {
     throw true;
   }

@@ -17,7 +17,7 @@ bool f(value) {
   return false;
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   create([]).skipWhile(f);
   create([1]).skipWhile(f);
   create([1,3,7,4,5,6]).skipWhile(f);

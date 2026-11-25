@@ -10,7 +10,6 @@
 ///
 /// @author a.semenov@unipro.ru
 
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
@@ -20,7 +19,7 @@ void entryPoint(SendPort sendPort) {
   }
 }
 
-typedef void Handler(event);
+typedef Handler = void Function(dynamic event);
 
 main() {
   asyncStart();

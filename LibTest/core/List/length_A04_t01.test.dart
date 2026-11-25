@@ -11,7 +11,7 @@ library length_A04_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a = create(0, 0);
   Expect.throws(() {a.length = 1;}, (e) => e is UnsupportedError);
   a = create(100, 0);

@@ -13,6 +13,6 @@ library first_A02_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Expect.throws(() {create().first;}, (e) => e is StateError);
 }

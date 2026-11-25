@@ -18,7 +18,8 @@ library asyncMap_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> stream, dynamic convert(T event), List expected) {
+void check<T>(
+    Stream<T> stream, dynamic Function(T event) convert, List expected) {
   AsyncExpect.data(expected, stream.asyncMap(convert));
 }
 

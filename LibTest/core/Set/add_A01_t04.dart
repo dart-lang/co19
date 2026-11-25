@@ -12,7 +12,7 @@ library add_A01_t04;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-test(Set create([Set content])) {
+test(Set Function([Set content]) create) {
   Set s = create();
 
   s.addAll([-1, -3, -2, -5, -6]);

@@ -10,7 +10,7 @@ import "compKeysTests.lib.dart" as compKeysTests;
 import "compKeysWarnTests.lib.dart" as compKeysWarnTests;
 import "nonCompKeysTests.lib.dart" as nonCompKeysTests;
 
-test(Map create([Map? content])) {
+test(Map Function([Map? content]) create) {
   compKeysTests.test(create);
   compKeysWarnTests.test(create);
   nonCompKeysTests.test(create);  

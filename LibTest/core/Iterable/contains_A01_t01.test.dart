@@ -20,7 +20,7 @@ library contains_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a = create();
   Expect.isFalse(a.contains(1));
   a = create([2]);

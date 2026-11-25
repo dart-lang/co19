@@ -35,7 +35,7 @@ bool testClear3(element) {
   return true;
 }
 
-check(bool test(dynamic element), List list) {
+check(bool Function(dynamic element) test, List list) {
   queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {queue?.removeWhere(test);});
 }

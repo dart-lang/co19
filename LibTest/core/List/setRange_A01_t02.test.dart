@@ -32,7 +32,7 @@ check(List dst, def) {
   Expect.listEquals([dst, src, dst, src, dst], dst);
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   check(create<dynamic>(5, 0), 0);
 
   List a = create();

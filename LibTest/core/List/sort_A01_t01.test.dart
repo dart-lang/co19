@@ -11,6 +11,6 @@
 
 library sort_A01_t01;
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   create().sort(null);    
 }

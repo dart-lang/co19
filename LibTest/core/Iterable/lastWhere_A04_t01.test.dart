@@ -18,7 +18,7 @@ class C {
   C(this.val);
 }
 
-test(Iterable create([Iterable content]), {bool isSet = false}) {
+test(Iterable Function([Iterable content]) create, {bool isSet = false}) {
   C c1 = new C(42);
   C c2 = new C(42);
 

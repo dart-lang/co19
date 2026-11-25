@@ -11,11 +11,11 @@
 library singleWhere_A02_t02;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, bool f(value)) {
+check(Iterable a, bool Function(dynamic value) f) {
   Expect.throws(() {a.singleWhere(f);}, (e) => e is StateError);
 }
 
-test(Iterable create([Iterable content]), {bool isSet = false}) {
+test(Iterable Function([Iterable content]) create, {bool isSet = false}) {
   if (!isSet) {
     check(create(const[1, 2, -5, -6, 1]), (value) => value == 1);
     check(create([1, 2, -3, 4, -1]), (value) => value < 0);

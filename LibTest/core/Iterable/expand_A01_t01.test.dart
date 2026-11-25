@@ -18,7 +18,7 @@
 library expand_A01_t01;
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
 
   void checkCount(Iterable a) {
     int count = 0;

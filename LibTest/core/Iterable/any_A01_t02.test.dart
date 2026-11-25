@@ -15,7 +15,7 @@
 library any_A01_t02;
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable s = create([1, -3, 10, 17]);
 
   Set outer = new Set();

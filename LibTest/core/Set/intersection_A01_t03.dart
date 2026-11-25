@@ -11,7 +11,7 @@ library intersection_A01_t03;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-test(Set create([Iterable content])) {
+test(Set Function([Iterable content]) create) {
   Set s = create();
   Set newSet = s.intersection([1, 2, 3].toSet());
   Expect.setEquals(s, [].toSet());

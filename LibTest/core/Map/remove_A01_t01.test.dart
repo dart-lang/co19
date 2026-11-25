@@ -13,7 +13,7 @@ library remove_A01_t01;
 
 import "../../../Utils/expect.dart";
  
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   Map map = create();
   
   Expect.isTrue(map.remove("1") == null);

@@ -23,7 +23,7 @@ bool throwFunction(element) {
   }
 }
 
-test(Queue create([Iterable content])) {
+test(Queue Function([Iterable content]) create) {
   Queue a = create([-3, -2, -1, 0, 1, 2, 3, -1]);
   Expect.throws(() { a.removeWhere(throwFunction); });
   Expect.iterableEquals([0, 1, 2, 3, -1], a);

@@ -29,7 +29,7 @@ main() {
   Expect.equals(0, callback());
 
   ZoneCallback<R> registerFunction<R>(
-      Zone self, ZoneDelegate parent, Zone zone, R f()) {
+      Zone self, ZoneDelegate parent, Zone zone, R Function() f) {
     return () => 42 as R;
   }
 

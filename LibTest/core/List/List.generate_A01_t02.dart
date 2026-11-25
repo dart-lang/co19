@@ -16,7 +16,7 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-typedef Generator(int index);
+typedef Generator = dynamic Function(int index);
 
 Generator gengen(List source) {
   return (int index) {

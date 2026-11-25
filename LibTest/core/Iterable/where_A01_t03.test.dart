@@ -13,7 +13,7 @@ library where_A01_t03;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a = create([]).where((v) => true);
   Iterator it = a.iterator;
   while (it.moveNext()) {}

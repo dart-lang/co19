@@ -13,7 +13,7 @@ library add_A01_t01;
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-test(Queue create([Iterable content])) {
+test(Queue Function([Iterable content]) create) {
   Queue queue = create();
   for (var i = 0; i <= 10000; i++) {
     queue.add(i);

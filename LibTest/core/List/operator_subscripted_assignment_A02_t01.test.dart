@@ -13,7 +13,7 @@ library operator_subscripted_assignment_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
   void check(List a0, int idx) {
     List a = create(a0.length, 0);

@@ -18,7 +18,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data, bool equals(dynamic previous, dynamic next)) {
+check(
+    Iterable<int> data, bool Function(dynamic previous, dynamic next) equals) {
   Stream s = IsolateStream.fromIterable(data);
   Stream d = s.distinct(equals);
   bool first = true;

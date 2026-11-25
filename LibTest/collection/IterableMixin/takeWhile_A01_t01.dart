@@ -24,7 +24,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-void check(List list, bool test(dynamic element)) {
+void check(List list, bool Function(dynamic element) test) {
   IterableMixin iterable = new MyIterable(list);
   Iterator it = list.iterator;
   Iterable res = iterable.takeWhile(test);

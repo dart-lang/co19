@@ -14,7 +14,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(
-    Stream<T> stream, Function? onError(dynamic event), bool test(error)) {
+    Stream<T> stream, Function? Function(dynamic event) onError,
+    bool Function(dynamic error) test) {
   Expect.equals(stream.isBroadcast, stream.handleError(onError).isBroadcast);
   Expect.equals(
       stream.isBroadcast, stream.handleError(onError, test: test).isBroadcast);

@@ -21,7 +21,7 @@ void check(Set set, Set other, Iterable expected) {
   Expect.isTrue(test.containsAll(expected));
 }
 
-test(Set create([Iterable content])) {
+test(Set Function([Iterable content]) create) {
   check(create([]), create([]), []);
   check(create([]), create([1, 2, 4, 5, 7]), [1, 2, 4, 5, 7]);
   check(create([1, 2, 4, 5, 7]), create([]), [1, 2, 4, 5, 7]);

@@ -12,7 +12,7 @@ library remove_A01_t01;
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-test(Queue create([Iterable content])) {
+test(Queue Function([Iterable content]) create) {
 
   check(List a, Object? value, List expected) {
     Queue queue = create(a);

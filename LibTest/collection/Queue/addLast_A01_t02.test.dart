@@ -21,7 +21,7 @@ check(List expected, Queue actual) {
   });
 }
  
-test(Queue create([Iterable content])) {
+test(Queue Function([Iterable content]) create) {
   Queue queue = create();
   
   Expect.isTrue(queue.length == 0);
