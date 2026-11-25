@@ -10,6 +10,8 @@
 /// arguments
 /// @author sgrekhov@unipro.ru
 
+// @dart=3.15
+
 class C {}
 
 typedef X T0<X>(X x);

@@ -35,6 +35,8 @@
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
+// @dart=3.15
+
 typedef void F0({required int i});
 typedef void F1({int i});
 

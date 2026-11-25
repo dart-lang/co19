@@ -9,7 +9,9 @@
 /// T0 is a subtype of T1. Test void function without actual arguments
 /// @author sgrekhov@unipro.ru
 
-typedef void T0();
+// @dart=3.15
+
+typedef T0 = void Function();
 
 void t0Instance() {}
 Function t1Instance = () {};

@@ -10,6 +10,8 @@
 /// returning some value
 /// @author sgrekhov@unipro.ru
 
+// @dart=3.15
+
 class C {}
 
 typedef void T0();

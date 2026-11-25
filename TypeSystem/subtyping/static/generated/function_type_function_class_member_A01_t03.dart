@@ -18,7 +18,9 @@
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
-typedef void T0();
+// @dart=3.15
+
+typedef T0 = void Function();
 
 void t0Instance() {}
 

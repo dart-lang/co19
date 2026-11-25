@@ -20,8 +20,10 @@
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 ///
 /// @description Check that if `T0` has a named argument and `T1` has a required
-/// named argument of the same type, then T0 is a subtype of T1.
+/// named argument of the same type, then `T0` is a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
+
+// @dart=3.15
 
 typedef void F0({int i});
 typedef void F1({required int i});

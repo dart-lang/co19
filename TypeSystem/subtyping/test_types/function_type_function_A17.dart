@@ -9,6 +9,8 @@
 /// then T0 is a subtype of T1. Test void generic function with named arguments
 /// @author sgrekhov@unipro.ru
 
+// @dart=3.15
+
 class C {}
 
 typedef void T0<X>(C c, {required X x});
