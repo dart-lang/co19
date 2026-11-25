@@ -20,7 +20,7 @@
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 ///
 /// @description Check that if `T0` has a named argument and `T1` has a required
-/// named argument of the same type, then T0 is a subtype of T1.
+/// named argument of the same type, then `T0` is a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
@@ -31,6 +31,8 @@
 /// test_cases/global_variable_x01.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
+
+// @dart=3.15
 
 typedef void F0({int i});
 typedef void F1({required int i});

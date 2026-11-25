@@ -25,6 +25,8 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 52928
 
+// @dart=3.15
+
 typedef void F0({required int i});
 typedef void F1({int i});
 

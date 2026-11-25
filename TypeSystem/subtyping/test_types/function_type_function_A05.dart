@@ -9,6 +9,8 @@
 /// T0 is a subtype of T1. Test non-void function with required arguments
 /// @author sgrekhov@unipro.ru
 
+// @dart=3.15
+
 class C {}
 
 typedef C T0(C c);

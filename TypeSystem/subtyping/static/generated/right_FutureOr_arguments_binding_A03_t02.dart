@@ -9,8 +9,10 @@
 ///   or T0 <: S1
 ///   or T0 is X0 and X0 has bound S0 and S0 <: T1
 ///   or T0 is X0 & S0 and S0 <: T1
-/// @description Check that if a type T1 is Future<S1> and a type T0 is X0 and X0
-/// has bound S0 and S0 <: Future<S1>, then a type T0 is a subtype of a type T1.
+///
+/// @description Check that if a type `T1` is `Future<S1>` and a type `T0` is
+/// `X0` and `X0` has bound `S0` and `S0 <: Future<S1>`, then a type `T0` is a
+/// subtype of a type `T1`.
 /// @author ngl@unipro.ru
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
@@ -21,6 +23,8 @@
 /// test_cases/arguments_binding_x02.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
+
+// ignore_for_file: null_argument_to_non_null_type
 
 import "dart:async";
 
@@ -34,13 +38,17 @@ FutureOr<S1> onTimeoutDef() => new S1();
 
 class S0 implements Future<S1> {
   asStream() => getStream<S1>();
-  catchError(Function onError, {bool test(Object error)? = testDef}) =>
+  catchError(Function onError, {bool Function(Object error)? test = testDef}) =>
       new Future.value();
-  then<T0>(FutureOr<T0> onValue(S1 value), {Function? onError = onErrorDef}) =>
-      new Future<T0>.value();
-  timeout(Duration timeLimit, {FutureOr<S1> onTimeout()? = onTimeoutDef}) =>
-      new Future.value();
-  whenComplete(FutureOr action()) => new Future.value();
+  then<T0>(
+    FutureOr<T0> Function(S1 value) onValue, {
+    Function? onError = onErrorDef,
+  }) => new Future<T0>.value();
+  timeout(
+    Duration timeLimit, {
+    FutureOr<S1> Function()? onTimeout = onTimeoutDef,
+  }) => new Future.value();
+  whenComplete(FutureOr Function() action) => new Future.value();
 }
 
 Stream<T> getStream<T>() {
