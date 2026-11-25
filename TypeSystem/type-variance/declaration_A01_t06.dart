@@ -44,8 +44,8 @@ List<void Function<out T>()> typeArgument = [];
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void parameterType(void Function<inout T>() f) {}
-//                               ^^^^^
+void parameterType1(void Function<inout T>() f) {}
+//                                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -54,13 +54,8 @@ void Function<in T>()? returnType() => null;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void functionTypedParameter1(void g<out T>()) {}
-//                                  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-void functionTypedParameter2(void g<inout T>()) {}
-//                                  ^^^^^
+void parameterType2(void Function<out T>() f) {}
+//                                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -79,8 +74,8 @@ List<Function<inout T>()> typeArgumentNoReturnType = [];
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void parameterTypeNoReturnType(Function<in T>() f) {}
-//                                      ^^
+void parameterTypeNoReturnType1(Function<in T>() f) {}
+//                                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -89,8 +84,8 @@ Function<out T>()? returnTypeNoReturnType() => null;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void functionTypedParameterNoReturnType(g<inout T>()) {}
-//                                        ^^^^^
+void parameterTypeNoReturnType2(Function<inout T>() f) {}
+//                                       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -100,18 +95,18 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void functionTypedParameter1(void g<in T>()) {}
-//                                    ^^
+  void parameterType1(void Function<in T>() f) {}
+//                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void functionTypedParameter2(void g<out T>()) {}
-//                                    ^^^
+  void parameterType2(void Function<out T>() f) {}
+//                                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void functionTypedParameter3(void g<inout T>()) {}
-//                                    ^^^^^
+  void parameterType3(void Function<inout T>() f) {}
+//                                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -120,8 +115,8 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void functionTypedParameterNoReturnType(g<out T>()) {}
-//                                          ^^^
+  void parameterTypeNoReturnType(Function<out T>() f) {}
+//                                        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -133,15 +128,14 @@ main() {
   print(TypedefSecondTypeParameter);
   print(topLevelVariable);
   print(typeArgument);
-  print(parameterType);
+  print(parameterType1);
+  print(parameterType2);
   print(returnType);
-  print(functionTypedParameter1);
-  print(functionTypedParameter2);
   print(TypedefNoReturnType);
   print(topLevelVariableNoReturnType);
   print(typeArgumentNoReturnType);
-  print(parameterTypeNoReturnType);
+  print(parameterTypeNoReturnType1);
+  print(parameterTypeNoReturnType2);
   print(returnTypeNoReturnType);
-  print(functionTypedParameterNoReturnType);
   print(C);
 }

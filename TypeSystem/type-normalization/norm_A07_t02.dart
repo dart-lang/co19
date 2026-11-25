@@ -12,10 +12,12 @@
 /// R1 Function<X extends B1>(S1).
 /// @author sgrekhov@unipro.ru
 
+// @dart=3.15
+
 class A<X> {}
 class B<X> implements A<X> {}
 
-typedef dynamic? F1<X>(Never? x);
+typedef dynamic? F1<X>(Never? x); // ignore: unnecessary_question_mark
 typedef dynamic F2<X>(Null x);
 
 class C extends B<F1<Never?>> implements A<F2<Null>> {}
