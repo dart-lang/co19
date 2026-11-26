@@ -11,7 +11,7 @@
 /// named `_`.
 /// @author sgrekhov22@gmail.com
 
-typedef int _();
+typedef _ = int Function();
 
 int _ = 1;
 //  ^
@@ -64,8 +64,8 @@ typedef _ = A;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void _();
-//           ^
+typedef _ = void Function();
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

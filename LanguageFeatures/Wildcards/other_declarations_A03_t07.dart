@@ -12,7 +12,7 @@
 
 import '../../Utils/expect.dart';
 
-typedef int _(String s);
+typedef _ = int Function(String s);
 
 main() {
   _ f = (String s) {return 42;};
