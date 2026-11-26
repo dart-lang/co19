@@ -15,7 +15,6 @@ mixin M {}
 enum E {e1;}
 extension type ET(int id) {}
 
-typedef int F1<_, _, _ extends num>();
 typedef F2<_, _, _ extends num> = int Function();
 typedef CAlias<_, _, _ extends num> = C;
 typedef MAlias<_, _, _ extends num> = M;
@@ -23,7 +22,6 @@ typedef EAlias<_, _, _ extends num> = E;
 typedef ETAlias<_, _, _ extends num> = ET;
 
 main() {
-  print(F1);
   print(F2);
   print(CAlias);
   print(MAlias);

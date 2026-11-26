@@ -19,13 +19,13 @@ typedef _ = ({int _});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef ({int _}) R3();
-//            ^
+typedef R3 = ({int _}) Function();
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R4(({String _}) r);
-//                       ^
+typedef R4 = void Function(({String _}) r);
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

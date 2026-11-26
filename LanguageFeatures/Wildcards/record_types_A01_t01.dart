@@ -15,10 +15,10 @@ import '../../Utils/expect.dart';
 
 typedef R1 = (int _, {String s});
 typedef R2 = (int _, int _);
-typedef (int _,) R3();
-typedef (int _, int _) R4();
-typedef void R5((String _, {String s}) r);
-typedef void R6((String _, int _) r);
+typedef R3 = (int _,) Function();
+typedef R4 = (int _, int _) Function();
+typedef R5 = void Function((String _, {String s}) r);
+typedef R6 = void Function((String _, int _) r);
 
 (int _,) r3() => (42,);
 (int _, int _) r4() => (1, 2);

@@ -64,8 +64,8 @@ typedef _ = A;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void _();
-//           ^
+typedef _ = void Function();
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

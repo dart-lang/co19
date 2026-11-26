@@ -12,22 +12,18 @@
 
 import '../../Utils/expect.dart';
 
-typedef int F1(_, int _);
-typedef int F2(_, int _, [_, int _]);
-typedef int F3<T>(T _, T _, [T? _, T? _]);
-
-typedef F4 = int Function(dynamic _, int _);
-typedef F5 = int Function(dynamic _, int _, [dynamic _, int _]);
-typedef F6<T> = int Function(T _, T _, [T? _, T? _]);
+typedef F1 = int Function(dynamic _, int _);
+typedef F2 = int Function(dynamic _, int _, [dynamic _, int _]);
+typedef F3<T> = int Function(T _, T _, [T? _, T? _]);
 
 main() {
   // Let's check that type aliases above work as intended
   F1 f1 = (_, int _) => 1;
   F2 f2 = (_, int _, [dynamic _, int _ = 0]) => 2;
   F3<int> f3 = (int _, int _, [int? _, int? _]) => 3;
-  F4 f4 = (_, int _) => 4;
-  F5 f5 = (dynamic _, int _, [_, int _ = 0]) => 5;
-  F6<int> f6 = (int _, int _, [int? _, int? _]) => 6;
+  F1 f4 = (_, int _) => 4;
+  F2 f5 = (dynamic _, int _, [_, int _ = 0]) => 5;
+  F3<int> f6 = (int _, int _, [int? _, int? _]) => 6;
 
   Expect.equals(1, f1(1, 2));
   Expect.equals(2, f2(1, 2, 3, 4));
