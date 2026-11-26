@@ -36,6 +36,34 @@ void main([args = const <String>[]]) =>
             'C.foo()',
           ) as InstanceRef;
           Expect.equals('ExtC', response.valueAsString);
+
+          response = await service.evaluateInFrame(
+            isolateId,
+            0,
+            'M.foo()',
+          ) as InstanceRef;
+          Expect.equals('ExtM', response.valueAsString);
+
+          response = await service.evaluateInFrame(
+            isolateId,
+            0,
+            'MC.foo()',
+          ) as InstanceRef;
+          Expect.equals('ExtMC', response.valueAsString);
+
+          response = await service.evaluateInFrame(
+            isolateId,
+            0,
+            'E.foo()',
+          ) as InstanceRef;
+          Expect.equals('ExtE', response.valueAsString);
+
+          response = await service.evaluateInFrame(
+            isolateId,
+            0,
+            'ET.foo()',
+          ) as InstanceRef;
+          Expect.equals('ExtET', response.valueAsString);
         })
         .run(
           pauseOnExit: true,

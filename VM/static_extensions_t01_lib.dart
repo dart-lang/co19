@@ -9,8 +9,32 @@ import '../../../../pkg/vm_service/test/common/test_helper.dart';
 
 class C {}
 
+mixin M {}
+
+mixin class MC {}
+
+enum E { e0 }
+
+extension type ET(int _) {}
+
 extension ExtC on C {
   static String foo() => "ExtC";
+}
+
+extension ExtM on M {
+  static String foo() => "ExtM";
+}
+
+extension ExtMC on MC {
+  static String foo() => "ExtMC";
+}
+
+extension ExtE on E {
+  static String foo() => "ExtE";
+}
+
+extension ExtET on ET {
+  static String foo() => "ExtET";
 }
 
 void testeeMain() {
