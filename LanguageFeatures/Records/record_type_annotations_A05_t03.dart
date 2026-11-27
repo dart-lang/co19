@@ -31,13 +31,13 @@ typedef R1 = (int i, {String noSuchMethod});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {Function noSuchMethod}) R2();
-//                      ^^^^^^^^^^^^
+typedef R2 = (int, {Function noSuchMethod}) Function();
+//                           ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String noSuchMethod}) r);
-//                                 ^^^^^^^^^^^^
+typedef R3 = void Function((String s, {String noSuchMethod}) r);
+//                                            ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

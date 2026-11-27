@@ -31,13 +31,13 @@ typedef R1 = (int i, {String hashCode});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {int hashCode}) R2();
-//                 ^^^^^^^^
+typedef R2 = (int, {int hashCode}) Function();
+//                      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String hashCode}) r);
-//                                 ^^^^^^^^
+typedef R3 = void Function((String s, {String hashCode}) r);
+//                                            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

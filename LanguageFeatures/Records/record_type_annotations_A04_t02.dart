@@ -28,9 +28,9 @@
 
 typedef R1 = (int i,);
 
-typedef (int,) R2();
+typedef R2 = (int,) Function();
 
-typedef void R3((String s,) r);
+typedef R3 = void Function((String s,) r);
 
 (int,) foo() => (42,);
 

@@ -27,15 +27,15 @@
 
 typedef R1 = (int i, String s,);
 
-typedef (int, String s,) R2();
+typedef R2 = (int, String s,) Function();
 
-typedef void R3((String s, int,) r);
+typedef R3 = void Function((String s, int,) r);
 
 typedef R4 = (int i, {String s,});
 
-typedef (int, {String s,}) R5();
+typedef R5 = (int, {String s,}) Function();
 
-typedef void R6(({String s, int i,}) r);
+typedef R6 = void Function(({String s, int i,}) r);
 
 (int, bool,) foo1() => (42, true);
 
