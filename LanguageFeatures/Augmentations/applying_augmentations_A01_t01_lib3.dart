@@ -39,7 +39,7 @@ augment extension type M3(int _) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef void E3();
-//                   ^^
+augment typedef E3 = void Function();
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified

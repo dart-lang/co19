@@ -39,7 +39,7 @@ augment extension type F1(int _) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef void C1();
-//                   ^^
+augment typedef C1 = void Function();
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified

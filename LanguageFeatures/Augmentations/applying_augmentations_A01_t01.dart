@@ -49,11 +49,11 @@ extension type ET3(int _) {}
 extension type ET4(int _) {}
 extension type ET5(int _) {}
 
-typedef void F1();
-typedef void F2();
-typedef void F3();
-typedef void F4();
-typedef void F5();
+typedef F1 = void Function();
+typedef F2 = void Function();
+typedef F3 = void Function();
+typedef F4 = void Function();
+typedef F5 = void Function();
 
 main() {
   print(C1);

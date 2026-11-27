@@ -23,7 +23,7 @@
 import "../../Utils/expect.dart";
 
 T foo<T>(T value) => value;
-typedef T Foo<T>(T t);
+typedef Foo<T> = T Function(T t);
 
 Foo<T> getFoo1<T>() => foo<T>;
 T Function<T>(T) getFoo2() => foo;

@@ -39,7 +39,7 @@ augment extension type Ext5(int _) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef void ET5();
-//                   ^^^
+augment typedef ET5 = void Function();
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
