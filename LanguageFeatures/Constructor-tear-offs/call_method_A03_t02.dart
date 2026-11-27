@@ -45,7 +45,7 @@
 
 import "../../Utils/expect.dart";
 
-typedef int Foo(int i);
+typedef Foo = int Function(int i);
 
 class A {
   T foo<T>(T value) => value;

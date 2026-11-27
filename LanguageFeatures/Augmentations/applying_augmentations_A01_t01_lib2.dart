@@ -39,7 +39,7 @@ augment extension type C2(int _) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef void M2();
-//                   ^^
+augment typedef M2 = void Function();
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified

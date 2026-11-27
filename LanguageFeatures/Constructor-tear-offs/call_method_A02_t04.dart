@@ -45,7 +45,7 @@
 
 T foo1<T>(T value) => value;
 
-typedef T Foo<T>(T value);
+typedef Foo<T> = T Function(T value);
 
 main() {
   Foo funcValue1 = foo1;

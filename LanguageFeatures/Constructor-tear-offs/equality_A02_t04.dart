@@ -10,7 +10,7 @@
 
 import "../../Utils/expect.dart";
 
-typedef X Foo<X>(X x);
+typedef Foo<X> = X Function(X x);
 X globalFunction<X>(X x) => x;
 
 Foo getFoo() => globalFunction;

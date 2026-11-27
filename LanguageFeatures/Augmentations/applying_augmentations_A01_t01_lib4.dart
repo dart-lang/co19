@@ -39,7 +39,7 @@ augment extension type E4(int _) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef void Ext4();
-//                   ^^^^
+augment typedef Ext4 = void Function();
+//              ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

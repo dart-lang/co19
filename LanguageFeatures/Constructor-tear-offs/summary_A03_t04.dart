@@ -76,7 +76,7 @@ import "../../Utils/expect.dart";
 typedef ListList<T> = List<List<T>>;
 T top<T>(T value) => value;
 
-typedef int Func(int i);
+typedef Func = int Function(int i);
 
 class C {
   static T stat<T>(T value) => value;
