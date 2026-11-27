@@ -31,13 +31,13 @@ typedef R1 = (String toString, {String s});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (String toString, {int i}) R2();
-//              ^^^^^^^^
+typedef R2 = (String toString, {int i}) Function();
+//                   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String toString, {String s}) r);
-//                      ^^^^^^^^
+typedef R3 = void Function((String toString, {String s}) r);
+//                                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

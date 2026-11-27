@@ -31,13 +31,13 @@ typedef R1 = (int i, {String runtimeType});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {Type runtimeType}) R2();
-//                  ^^^^^^^^^^^
+typedef R2 = (int, {Type runtimeType}) Function();
+//                       ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String runtimeType}) r);
-//                                 ^^^^^^^^^^^
+typedef R3 = void Function((String s, {String runtimeType}) r);
+//                                            ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

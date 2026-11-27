@@ -46,13 +46,13 @@ typedef R2 = ({var s});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (var i,) R3();
-//       ^^^
+typedef R3 = (var i,) Function();
+//            ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R5(({var s}) r);
-//                ^^^
+typedef R5 = void Function(({var s}) r);
+//                           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

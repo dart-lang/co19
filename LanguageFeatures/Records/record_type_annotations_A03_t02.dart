@@ -36,23 +36,23 @@ typedef R2 = (int i, int i, {String s});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int i, {String s, int i}) R3();
-//                             ^
+typedef R3 = (int i, {String s, int i}) Function();
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int i, int i, {String s}) R4();
-//                  ^
+typedef R4 = (int i, int i, {String s}) Function();
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R5((int i, {String s, int i}) r);
+typedef R5 = void Function((int i, {String s, int i}) r);
+//                                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef R6 = void Function((int i, int i, {String s}) r);
 //                                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-typedef void R6((int i, int i, {String s}) r);
-//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

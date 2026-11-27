@@ -43,13 +43,13 @@ typedef R1 = ([int? i, String? s]);
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef ([int? i, String? s]) R2();
-//       ^
+typedef R2 = ([int? i, String? s]) Function();
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3(([int? i, String? s]) r);
-//               ^
+typedef R3 = void Function(([int? i, String? s]) r);
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

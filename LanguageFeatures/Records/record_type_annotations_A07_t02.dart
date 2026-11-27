@@ -31,11 +31,11 @@ typedef R1 = (int $6, {String s});
 
 typedef R2 = (int, {String $101});
 
-typedef (int $1, {int i}) R3();
+typedef R3 = (int $1, {int i}) Function();
 
-typedef (int, {int $2}) R4();
+typedef R4 = (int, {int $2}) Function();
 
-typedef void R5((String s, {String $2}) r);
+typedef R5 = void Function((String s, {String $2}) r);
 
 (int, {int $2})? foo1() => null;
 

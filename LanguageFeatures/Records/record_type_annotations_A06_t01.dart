@@ -31,13 +31,13 @@ typedef R1 = (int i, {String _s});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {int _n}) R2();
-//                 ^^
+typedef R2 = (int, {int _n}) Function();
+//                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String _s}) r);
-//                                 ^^
+typedef R3 = void Function((String s, {String _s}) r);
+//                                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

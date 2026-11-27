@@ -43,8 +43,8 @@ typedef R1 = (@Meta() int i, @Meta() String s);
 typedef R2 = (@Meta() int i,{@Meta() String s});
 typedef R3 = ({@Meta() int i, @Meta() String s});
 
-typedef (@Meta() int i, {@Meta() String s}) R4();
-typedef void R5((@Meta() int i, {@Meta() String s}) r);
+typedef R4 = (@Meta() int i, {@Meta() String s}) Function();
+typedef R5 = void Function((@Meta() int i, {@Meta() String s}) r);
 
 (@Meta() int i, {@Meta() String s}) foo() => (42, s: "");
 
